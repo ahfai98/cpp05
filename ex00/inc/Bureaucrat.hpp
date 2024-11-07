@@ -6,7 +6,7 @@
 /*   By: jyap <jyap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 20:49:31 by jyap              #+#    #+#             */
-/*   Updated: 2024/11/07 20:49:39 by jyap             ###   ########.fr       */
+/*   Updated: 2024/11/07 21:40:27 by jyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class Bureaucrat
 		Bureaucrat			&operator=(const Bureaucrat &src);
 		
 		/* Member functions */
-		const std::string	getName();
-		int					getGrade();
+		const std::string	getName() const;
+		int					getGrade() const;
 		void				becomeSmarter();
 		void				becomeDumber();
 
@@ -47,5 +47,7 @@ class Bureaucrat
 		const std::string	_name;
 		int					_grade;
 };
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
 
 #endif
