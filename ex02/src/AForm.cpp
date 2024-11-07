@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jyap <jyap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,36 +10,36 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Form.hpp"
+#include "../inc/AForm.hpp"
 
 /* Default constructor function of Form class */
-Form::Form() : _name("Default"), _signed(false), _signGrade(150), _executeGrade(150)
+AForm::AForm() : _name("Default"), _signed(false), _signGrade(150), _executeGrade(150)
 { 
 }
 
 /* Copy constructor function of Form class */
-Form::Form(const Form &src) :
+AForm::AForm(const AForm &src) :
 	_name(src._name), _signed(src._signed), _signGrade(src._signGrade), _executeGrade(src._executeGrade)
 {
 }
 
 /* Constructor function for (string, int, int) input of Form class */
-Form::Form(const std::string name, int signGrade, int executeGrade) :
+AForm::AForm(const std::string name, int signGrade, int executeGrade) :
 	_name(name), _signed(false), _signGrade(signGrade), _executeGrade(executeGrade)
 {
 	if (this->_signGrade < 1 || this->_executeGrade < 1)
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 	if (this->_signGrade > 150 || this->_executeGrade > 150)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 }
 
 /* Destructor function of Form class */
-Form::~Form()
+AForm::~AForm()
 {
 }
 
 /* Copy assignation operator of Form class */
-Form	&Form::operator=(const Form &src)
+AForm	&AForm::operator=(const AForm &src)
 {
 	if (this == &src)
 		return (*this);
@@ -48,50 +48,64 @@ Form	&Form::operator=(const Form &src)
 }
 
 /* Getter function for name of Form class */
-const std::string	Form::getName() const
+const std::string	AForm::getName() const
 {
 	return (this->_name);
 }
 
 /* Getter function for signed of Form class */
-bool	Form::getSigned() const
+bool	AForm::getSigned() const
 {
 	return (this->_signed);
 }
 
 /* Getter function for signGrade of Form class */
-int	Form::getSignGrade() const
+int	AForm::getSignGrade() const
 {
 	return (this->_signGrade);
 }
 
 /* Getter function for executeGrade of Form class */
-int	Form::getExecuteGrade() const
+int	AForm::getExecuteGrade() const
 {
 	return (this->_executeGrade);
 }
 
-void	Form::beSigned(const Bureaucrat &bureaucrat)
+void	AForm::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->_signGrade)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	this->_signed = true;
 }
 
-/* Exception function for when Grade is too high */
-const char	*Form::GradeTooHighException::what() const throw()
+void	AForm::execute(const Bureaucrat &executor) const
 {
-	return ("(Form) GradeTooHighException was called.");
+	if (executor.getGrade() > this->_executeGrade)
+		throw AForm::GradeTooLowException();
+	if (this->_signed == false)
+		throw AForm::FormNotSigned();
+	performAction();
+}
+
+/* Exception function for when Grade is too high */
+const char	*AForm::GradeTooHighException::what() const throw()
+{
+	return ("(AForm) GradeTooHighException was called.");
 }
 
 /* Exception function for when Grade is too low */
-const char	*Form::GradeTooLowException::what() const throw()
+const char	*AForm::GradeTooLowException::what() const throw()
 {
-	return ("(Form) GradeTooLowException was called.");
+	return ("(AForm) GradeTooLowException was called.");
+}
+
+const char	*AForm::FormNotSigned::what() const throw()
+{
+	return ("(AForm) FormNotSigned was called.");
 }
 
 /* Function when << operator is called. */
-std::ostream	&operator<<(std::ostream &os, const Form &src)
+std::ostream	&operator<<(std::ostream &os, const AForm &src)
 {
 	os << "Form name: " << src.getName() << std::endl;
 	os << "Signed: " << src.getSigned() << std::endl;

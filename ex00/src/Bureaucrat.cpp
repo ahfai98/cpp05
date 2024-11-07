@@ -6,7 +6,7 @@
 /*   By: jyap <jyap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 20:58:39 by jyap              #+#    #+#             */
-/*   Updated: 2024/11/07 21:40:42 by jyap             ###   ########.fr       */
+/*   Updated: 2024/11/07 22:59:51 by jyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,13 +92,13 @@ void	Bureaucrat::becomeDumber()
 /* Exception function for when Grade is too high */
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("(Bureaucrat) GradeTooHighException was called");
+	return ("(Bureaucrat) GradeTooHighException was called.");
 }
 
 /* Exception function for when Grade is too low */
 const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("(Bureaucrat) GradeTooLowException was called");
+	return ("(Bureaucrat) GradeTooLowException was called.");
 }
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &b)
