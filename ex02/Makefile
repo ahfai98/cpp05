@@ -6,7 +6,7 @@
 #    By: jyap <jyap@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/18 13:40:07 by jyap              #+#    #+#              #
-#    Updated: 2024/11/07 22:40:25 by jyap             ###   ########.fr        #
+#    Updated: 2024/11/16 19:07:29 by jyap             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,17 +16,17 @@ OBJ_DIR = obj/
 
 INC_DIR = inc/
 
-SRC_FILES	= 	main.cpp \
-				Bureaucrat.cpp \
-				AForm.cpp \
-				PresidentialPardonForm.cpp \
-				RobotomyRequestForm.cpp \
-				ShrubberyCreationForm.cpp \
+SRC_FILES	=  main.cpp \
+  Bureaucrat.cpp \
+  AForm.cpp \
+  PresidentialPardonForm.cpp \
+  RobotomyRequestForm.cpp \
+  ShrubberyCreationForm.cpp \
 
 OBJ_FILES	= $(SRC_FILES:.cpp=.o)
 
-SRC			=	$(addprefix $(SRC_DIR), $(SRC_FILES))
-OBJ			=	$(addprefix $(OBJ_DIR), $(OBJ_FILES))
+SRC  =	$(addprefix $(SRC_DIR), $(SRC_FILES))
+OBJ  =	$(addprefix $(OBJ_DIR), $(OBJ_FILES))
 
 NAME = program
 

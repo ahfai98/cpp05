@@ -6,7 +6,7 @@
 /*   By: jyap <jyap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 20:49:31 by jyap              #+#    #+#             */
-/*   Updated: 2024/11/07 21:42:44 by jyap             ###   ########.fr       */
+/*   Updated: 2024/11/16 19:09:36 by jyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,17 @@ class Form;
 class Bureaucrat
 {
 	public:
-		/* Orthrodox canonical form */
+		
 		Bureaucrat();
 		Bureaucrat(const std::string name, int grade);
 		Bureaucrat(const Bureaucrat &src);
 		~Bureaucrat();
-		Bureaucrat			&operator=(const Bureaucrat &src);
-		
-		/* Member functions */
+		Bureaucrat &operator=(const Bureaucrat &src);
 		const std::string	getName() const;
-		int					getGrade() const;
-		void				becomeSmarter();
-		void				becomeDumber();
-		void				signForm(Form &form);
+		int getGrade() const;
+		void becomeHigherGrade();
+		void becomeLowerGrade();
+		void signForm(Form &form);
 
 		/* Exception classes */
 		class GradeTooHighException : public std::exception
@@ -48,10 +46,10 @@ class Bureaucrat
 				virtual const char	*what() const throw();
 		};
 	private:
-		const std::string	_name;
-		int					_grade;
+		const std::string _name;
+		int _grade;
 };
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &b);
 
 #endif

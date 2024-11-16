@@ -6,7 +6,7 @@
 /*   By: jyap <jyap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 21:46:36 by jyap              #+#    #+#             */
-/*   Updated: 2024/11/07 22:59:51 by jyap             ###   ########.fr       */
+/*   Updated: 2024/11/16 19:32:05 by jyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,32 @@
 
 /* Default constructor function of Form class */
 Form::Form() : _name("Default"), _signed(false), _signGrade(150), _executeGrade(150)
-{ 
-}
+{}
 
 /* Copy constructor function of Form class */
-Form::Form(const Form &src) :
-	_name(src._name), _signed(src._signed), _signGrade(src._signGrade), _executeGrade(src._executeGrade)
+Form::Form(const Form &src): _name(src._name), _signGrade(src._signGrade), _executeGrade(src._executeGrade)
 {
+	*this = src;
 }
 
 /* Constructor function for (string, int, int) input of Form class */
-Form::Form(const std::string name, int signGrade, int executeGrade) :
-	_name(name), _signed(false), _signGrade(signGrade), _executeGrade(executeGrade)
+Form::Form(const std::string name, int signGrade, int executeGrade) :_name(name), _signed(false), _signGrade(signGrade), _executeGrade(executeGrade)
 {
 	if (this->_signGrade < 1 || this->_executeGrade < 1)
 		throw Form::GradeTooHighException();
-	if (this->_signGrade > 150 || this->_executeGrade > 150)
+	else if (this->_signGrade > 150 || this->_executeGrade > 150)
 		throw Form::GradeTooLowException();
 }
 
 /* Destructor function of Form class */
 Form::~Form()
-{
-}
+{}
 
 /* Copy assignation operator of Form class */
-Form	&Form::operator=(const Form &src)
+Form &Form::operator=(const Form &src)
 {
-	if (this == &src)
-		return (*this);
-	this->_signed = src._signed;
+	if (this != &src)
+		this->_signed = src._signed;
 	return (*this);
 }
 
@@ -91,10 +87,13 @@ const char	*Form::GradeTooLowException::what() const throw()
 }
 
 /* Function when << operator is called. */
-std::ostream	&operator<<(std::ostream &os, const Form &src)
+std::ostream &operator<<(std::ostream &os, const Form &src)
 {
 	os << "Form name: " << src.getName() << std::endl;
-	os << "Signed: " << src.getSigned() << std::endl;
+	if (src.getSigned())
+		os << "Signed: Yes"<< std::endl;
+	else
+		os << "Signed: No" << std::endl;
 	os << "Grade to sign: " << src.getSignGrade() << std::endl;
 	os << "Grade to execute: " << src.getExecuteGrade() << std::endl;
 	return (os);

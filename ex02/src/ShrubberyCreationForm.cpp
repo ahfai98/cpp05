@@ -6,7 +6,7 @@
 /*   By: jyap <jyap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 22:31:39 by jyap              #+#    #+#             */
-/*   Updated: 2024/11/07 22:39:35 by jyap             ###   ########.fr       */
+/*   Updated: 2024/11/16 19:48:47 by jyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,30 @@
 
 /* Default constructor function of ShrubberyCreationForm class */
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreation", 145, 137), _target("NULL")
-{
-}
+{}
 
 /* Copy constructor function of ShrubberyCreationForm class */
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src) : AForm(src), _target(src._target)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src) : AForm(src)
 {
+	*this = src;
 }
 
 /* Constructor function for string input of ShrubberyCreationForm class */
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) : AForm("ShrubberyCreation", 145, 137), _target(target)
-{
-}
+{}
 
 /* Destructor function of ShrubberyCreationForm class */
 ShrubberyCreationForm::~ShrubberyCreationForm()
-{	
-}
+{	}
 
 /* Copy assignation operator function of ShrubberyCreationForm class */
 ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src)
 {
-	if (this == &src)
-		return (*this);
-	AForm::operator=(src);
-	this->_target = src._target;
+	if (this != &src)
+	{
+		AForm::operator=(src);
+		this->_target = src._target;
+	}
 	return (*this);
 }
 

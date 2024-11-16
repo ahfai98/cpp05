@@ -6,7 +6,7 @@
 /*   By: jyap <jyap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 23:05:20 by jyap              #+#    #+#             */
-/*   Updated: 2024/11/07 23:15:52 by jyap             ###   ########.fr       */
+/*   Updated: 2024/11/16 20:08:22 by jyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 /* Default constructor function of Intern class */
 Intern::Intern()
-{
-}
+{}
 
 /* Copy constructor function of Intern class */
 Intern::Intern(const Intern &src)
@@ -25,8 +24,7 @@ Intern::Intern(const Intern &src)
 
 /* Destructor function of Intern class */
 Intern::~Intern()
-{
-}
+{}
 
 /* Copy assignation operator function of Intern class */
 Intern	&Intern::operator=(const Intern &src)
@@ -38,18 +36,16 @@ Intern	&Intern::operator=(const Intern &src)
 /* MakeForm function to make forms using string name and target input */
 AForm	*Intern::makeForm(const std::string formName, const std::string target)
 {
-	const std::string	availableName[MAX_FORMS]
-		= {"ShrubberyCreation", "RobotomyRequest", "PresidentialPardon"};
-	AForm				*availableForm[MAX_FORMS]
-		= {new ShrubberyCreationForm(target), new RobotomyRequestForm(target), new PresidentialPardonForm(target)};
-	AForm				*selectedForm;
+	const std::string	availableName[MAX_FORMS] = {"ShrubberyCreation", "RobotomyRequest", "PresidentialPardon"};
+	AForm  *availableForm[MAX_FORMS] = {new ShrubberyCreationForm(target), new RobotomyRequestForm(target), new PresidentialPardonForm(target)};
+	AForm  *selectedForm;
 
 	selectedForm = NULL;
 	for (int i = 0; i < MAX_FORMS; i++)
 	{
 		if (formName == availableName[i])
 		{
-			std::cout << "Intern creates " << formName << "Form" << std::endl;
+			std::cout << "Intern creates " << formName << "Form" << "." << std::endl;
 			selectedForm = availableForm[i];
 		}
 		else

@@ -6,9 +6,10 @@
 /*   By: jyap <jyap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 20:47:42 by jyap              #+#    #+#             */
-/*   Updated: 2024/11/07 23:13:21 by jyap             ###   ########.fr       */
+/*   Updated: 2024/11/16 20:10:41 by jyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../inc/Bureaucrat.hpp"
 #include "../inc/ShrubberyCreationForm.hpp"
@@ -31,6 +32,7 @@ int main()
 		delete form;
 
 		std::cout << "\n---------- EX03 Robotomy Test ----------\n" << std::endl;
+		srand(time(NULL));
 		form = intern.makeForm("RobotomyRequest", "Ricky");
 		bureaucrat.signForm(*form);
 		bureaucrat.executeForm(*form);

@@ -6,7 +6,7 @@
 /*   By: jyap <jyap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 22:15:13 by jyap              #+#    #+#             */
-/*   Updated: 2024/11/07 22:15:27 by jyap             ###   ########.fr       */
+/*   Updated: 2024/11/16 19:28:52 by jyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,14 @@
 class PresidentialPardonForm : public AForm
 {
 	public:
-		/* Orthrodox canonical form */
 		PresidentialPardonForm();
 		PresidentialPardonForm(const PresidentialPardonForm &src);
 		PresidentialPardonForm(const std::string target);
 		~PresidentialPardonForm();
 		PresidentialPardonForm	&operator=(const PresidentialPardonForm &src);
-
-		/* Member functions */
-		void					performAction() const;
+		void performAction() const;
 	private:
-		std::string				_target;
+		std::string  _target;
 };
 
 #endif

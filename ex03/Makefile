@@ -6,7 +6,7 @@
 #    By: jyap <jyap@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/18 13:40:07 by jyap              #+#    #+#              #
-#    Updated: 2024/11/07 23:17:25 by jyap             ###   ########.fr        #
+#    Updated: 2024/11/16 20:05:38 by jyap             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,22 +16,22 @@ OBJ_DIR = obj/
 
 INC_DIR = inc/
 
-SRC_FILES	= 	main.cpp \
-				Bureaucrat.cpp \
-				AForm.cpp \
-				PresidentialPardonForm.cpp \
-				RobotomyRequestForm.cpp \
-				ShrubberyCreationForm.cpp \
-				Intern.cpp
+SRC_FILES	=  main.cpp \
+  Bureaucrat.cpp \
+  AForm.cpp \
+  PresidentialPardonForm.cpp \
+  RobotomyRequestForm.cpp \
+  ShrubberyCreationForm.cpp \
+  Intern.cpp \
 
 OBJ_FILES	= $(SRC_FILES:.cpp=.o)
 
-SRC			=	$(addprefix $(SRC_DIR), $(SRC_FILES))
-OBJ			=	$(addprefix $(OBJ_DIR), $(OBJ_FILES))
+SRC  =	$(addprefix $(SRC_DIR), $(SRC_FILES))
+OBJ  =	$(addprefix $(OBJ_DIR), $(OBJ_FILES))
 
 NAME = program
 
-CC = c++ -g
+CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 

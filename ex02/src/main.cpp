@@ -6,7 +6,7 @@
 /*   By: jyap <jyap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 20:47:42 by jyap              #+#    #+#             */
-/*   Updated: 2024/11/07 22:56:20 by jyap             ###   ########.fr       */
+/*   Updated: 2024/11/16 19:53:54 by jyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@
 ** PresidentialPardonForm: Sign 25, Execute: 5 */
 int main()
 {
-	Bureaucrat				dumbBureaucrat("Dumb", 150);
-	Bureaucrat				averageBureaucrat("Average", 70);
-	Bureaucrat				aboveAverageBureaucrat("AboveAverage", 30);
-	Bureaucrat				smartBureaucrat("Smart", 1);
+	Bureaucrat  dumbBureaucrat("Dumb", 150);
+	Bureaucrat  averageBureaucrat("Average", 70);
+	Bureaucrat  aboveAverageBureaucrat("AboveAverage", 30);
+	Bureaucrat  smartBureaucrat("Smart", 1);
 	ShrubberyCreationForm	shrubbery("Home");
-	RobotomyRequestForm 	robotomy("Ricky");
+	RobotomyRequestForm  robotomy("Ricky");
 	PresidentialPardonForm	presidential("Ivan");
 
 	std::cout << "\n---------- EX02 Shrubbery Test ----------\n" << std::endl;
@@ -38,7 +38,7 @@ int main()
 	aboveAverageBureaucrat.signForm(shrubbery);
 	//aboveAverageBureaucrat.executeForm(shrubbery);
 	smartBureaucrat.signForm(shrubbery);
-	//smartBureaucrat.executeForm(shrubbery);
+	smartBureaucrat.executeForm(shrubbery);
 
 	std::cout << "\n---------- EX02 Robotomy Test ----------\n" << std::endl;
 	srand(time(NULL));

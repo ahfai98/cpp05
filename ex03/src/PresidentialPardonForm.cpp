@@ -6,7 +6,7 @@
 /*   By: jyap <jyap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 22:18:53 by jyap              #+#    #+#             */
-/*   Updated: 2024/11/07 22:24:14 by jyap             ###   ########.fr       */
+/*   Updated: 2024/11/16 19:46:08 by jyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,30 @@
 
 /* Default constructor function of PresidentialPardonForm class */
 PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5), _target("Null")
-{
-}
+{}
 
 /* Copy constructor function of PresidentialPardonForm class */
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &src) : AForm(src), _target(src._target)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &src): AForm(src)
 {
+	*this = src;
 }
 
 /* Constructor function for string input of PresidentialPardonForm class */
 PresidentialPardonForm::PresidentialPardonForm(const std::string target) : AForm("PresidentialPardonForm", 25, 5), _target(target)
-{
-}
+{}
 
 /* Destructor function of PresidentialPardonForm class */
 PresidentialPardonForm::~PresidentialPardonForm()
-{
-}
+{}
 
 /* Copy assignation operator function of PresidentialPardonForm class */
 PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPardonForm &src)
 {
-	if (this == &src)
-		return (*this);
-	AForm::operator=(src);
-	this->_target = src._target;
+	if (this != &src)
+	{
+		AForm::operator=(src);
+		this->_target = src._target;
+	}
 	return (*this);
 }
 
